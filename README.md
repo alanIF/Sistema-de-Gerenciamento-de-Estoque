@@ -18,5 +18,5 @@
 
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
-  <p>Desenvolvido por : Alan Tavares e Janailton Galvão</p> 
+  <p>Desenvolvido por : Alan Tavares , Janailton Galvão e Gabriel Silva</p> 
 </footer>
