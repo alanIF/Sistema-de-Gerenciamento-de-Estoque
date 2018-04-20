@@ -10,10 +10,8 @@
 <!-- Second Container -->
 <div class="container-fluid bg-2 text-center">
   <h3 class="margin">O que é?</h3>
-  <p> É um sistema de controle de alugueis para a web, desenvolvido com php e bootstrap. Ele tem o objetivo monitorar os pagamentos e mostrar seu rendimento financeiros.</p>
-  <a href="#" class="btn btn-default btn-lg">
-    <span class="glyphicon glyphicon-search"></span> Search
-  </a>
+  <p> É um sistema de controle de estoque, em que o adminisrador gerencia as saidas dos seus funcionarios e cadastram as entradas dos produtos.</p>
+<p>Além disso ele é capaz de acompanhar seu estoque e extrair relatorios para analises.</p>
 </div>
 
 
