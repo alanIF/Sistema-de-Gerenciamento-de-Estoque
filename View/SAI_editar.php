@@ -92,7 +92,7 @@ include("head.php");
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right" id="datepicker" name="data_saida" placeholder="Data Saída"  data-inputmask="'alias': 'dd/mm/yyyy'" value="<?php echo $data_saida;?>"data-mask required>
+                                <input type="text" class="form-control pull-right"  name="data_saida" placeholder="Data Saída"  data-inputmask="'alias': 'dd/mm/yyyy'" value="<?php echo $data_saida;?>"data-mask required readonly>
                             </div>
                             <!-- /.input group -->
                         </div> 
