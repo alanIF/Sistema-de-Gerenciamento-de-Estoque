@@ -22,7 +22,7 @@
 <body  class="hold-transition login-page">
 	 <div class="login-box">
   <div class="login-logo">
-    Sistema de Gerenciamento  de Estoque
+    Sistema de Gerenciamento Estoque UHSS
   </div>
                <div class="login-box-body">
     <p class="login-box-msg">Faça o login para entrar no Sistema!</p>
