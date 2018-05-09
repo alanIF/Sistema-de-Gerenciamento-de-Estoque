@@ -1,3 +1,12 @@
+<?php
+         require_once '../Model/connect.php';            
+        require_once '../Controller/UsuarioController.php';
+        $objControl = new UsuarioController();
+
+        $objControl->verificarlogin();
+
+        
+    ?>
 <!DOCTYPE html>
 
 <html>
@@ -75,15 +84,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 
-    <?php
-        require_once '../Model/connect.php';            
-        require_once '../Controller/UsuarioController.php';
-        $objControl = new UsuarioController();
-
-        $objControl->verificarlogin();
-
-        
-    ?>
+ 
                 
                 
                 <span class="hidden-xs"><b><?php echo $_SESSION['usuario'];?></b></span>

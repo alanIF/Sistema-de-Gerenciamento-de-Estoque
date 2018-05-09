@@ -1,16 +1,7 @@
 <?php
-function verifica_sessao(){
-    if ( session_status() !== PHP_SESSION_ACTIVE )
-   {
-    return false;
-    }
-    return true;
-}
 function logar($email, $senha) {
     $conn = F_conect();
-    if(verifica_sessao()==false){
-        session_start();
-    }
+    session_start();
     $result = mysqli_query($conn, "SELECT * FROM usuario WHERE email='" . $email . "' AND senha='" . $senha . "'");
     if (mysqli_num_rows($result) == 1) {
         // teste - certo
@@ -28,11 +19,10 @@ function logar($email, $senha) {
         $_SESSION['permissao']=$admin;
         //______LOG
         include './Model/LOGS.php';
+     
         if (NovoLog("Entrou no Sistema", $id_usuario) == TRUE) {
-             echo "</script>";
-        echo "<script language='javascript' type='text/javascript'>
-window.location.href = 'view/home.php';
-</script>";
+           header('Location:./view/home.php');
+
         }
     } else if (mysqli_num_rows($result) != 1) {
         $_SESSION['usuario'] = "";
@@ -46,30 +36,37 @@ window.location.href = 'view/home.php';
 }
 
 function sair() {
-     if(verifica_sessao()==false){
+    if (session_status() !== PHP_SESSION_ACTIVE) {
         session_start();
     }
     //______LOG
     include '../Model/LOGS.php';
     if (NovoLog("Saiu do Sistema", $_SESSION['idUSU'])) {
-        session_destroy();
-         echo "<script language='javascript' type='text/javascript'>
-window.location.href = '../index.php';
-</script>";
+          $_SESSION = array();
+          if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+            }
+            session_destroy();
+            header('Location: ../index.php');
     }
     Alert("Ops!", "Erro ao sair do sistema, procure o suporte!", "danger");
 }
 
 function testLogado() {
-    if(verifica_sessao()==false){
+    if (session_status() !== PHP_SESSION_ACTIVE) {
         session_start();
     }
-
     if ($_SESSION['usuario'] == false) {
- echo "<script language='javascript' type='text/javascript'>
-window.location.href = '../index.php';
-</script>";
- }
+        $_SESSION = array();
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]
+            );
+        }
+        session_destroy();
+        header('Location: ../index.php');
+    }
 }
 
 function cadastrar($nome, $email, $senha) {

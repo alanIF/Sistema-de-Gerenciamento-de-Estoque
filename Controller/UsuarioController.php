@@ -3,7 +3,7 @@
 class UsuarioController{
     
     public function Login($email, $senha){
-         require ('./Model/USU_Crud.php');
+       require ('./Model/USU_Crud.php');
         //Alguns filtros  e tals.. 
        logar($email, $senha);
     }
@@ -14,7 +14,7 @@ class UsuarioController{
     }
     public function verificarLogin(){
         require ('../Model/USU_Crud.php');
-            testLogado();
+        testLogado();
         
     }
     public function logOut() {

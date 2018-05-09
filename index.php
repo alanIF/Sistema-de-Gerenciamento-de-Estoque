@@ -1,4 +1,14 @@
+<?php         
+
+if (isset($_POST["botao"])) {
+                require_once 'Model/connect.php';   
+                require_once './Controller/UsuarioController.php';
+                $objControl = new UsuarioController();
+                $objControl->Login($_POST["email"], $_POST["senha"]);
+            }
+        ?>
 <!DOCTYPE html>
+
 <html>
 <head>
  <meta charset="utf-8">
@@ -47,17 +57,7 @@
  </form>
                </div>
          </div>
-<?php
-    //CONECTAR          
-    require_once 'Model/connect.php'; 
-   
-        require_once './Controller/UsuarioController.php';
-        
-            if (isset($_POST["botao"])) {
-                $objControl = new UsuarioController();
-                $objControl->Login($_POST["email"], $_POST["senha"]);
-            }
-        ?>
+
                
 </body>
     <!-- jQuery 2.2.3 -->
